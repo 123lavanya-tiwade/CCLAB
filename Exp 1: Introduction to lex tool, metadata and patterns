@@ -1,0 +1,18 @@
+%{
+#include<stdio.h>
+%}
+
+%%
+"Sec-B" {printf("Found sec-B");}
+.|\n{}
+%%
+
+int main(){
+	printf("Enter a statement: ");
+	yylex();
+	return 0;
+}
+
+int yywrap(){
+	return 1;
+}
