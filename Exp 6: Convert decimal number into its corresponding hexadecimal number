@@ -1,0 +1,30 @@
+
+%{
+#include <stdio.h>
+#include <stdlib.h>
+%}
+
+%%
+
+[0-9]+    {
+              int num = atoi(yytext);
+              printf("Hexadecimal number = %X\n", num);
+          }
+
+\n        { return 0; }
+
+.         ;
+
+%%
+
+int yywrap()
+{
+    return 1;
+}
+
+int main()
+{
+    printf("Enter a decimal number: ");
+    yylex();
+    return 0;
+}
